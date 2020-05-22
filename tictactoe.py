@@ -59,11 +59,6 @@ def winner(board):
     Returns the winner of the game, if there is one.
     """
 
-    """
-    This is the bug I don't know why but if I remove this part then in third if there is winner or not but it doesn't check it so additionally add it for third row
-    """
-    if board[2][0] == board[2][1] and board[2][1] == board[2][2]:
-        return board[2][0]
 
     
     """
@@ -71,9 +66,11 @@ def winner(board):
     """
     for i in range(3):
         if board[i][0] == board[i][1] and board[i][1] == board[i][2]:
-            return board[i][0]
+            if board[i][0] is not None:
+                return board[i][0]
         if board[0][i] == board[1][i] and board[1][i] == board[2][i]:
-            return board[0][i]
+            if board[0][i] is not None:
+                return board[0][i]
 
     if board[0][0] == board[1][1] and board[1][1] == board[2][2]:
         return board[0][0]
